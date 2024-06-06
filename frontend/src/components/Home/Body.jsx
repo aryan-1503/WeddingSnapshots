@@ -1,7 +1,12 @@
 import React from 'react';
-import '../styles/Body.css'
-import WeddingImage from '../images/jay-shreya.jpg'
+import '../../styles/Home/Body.css'
+import WeddingImage from '../../images/jay-shreya.jpg'
+import {useNavigate} from "react-router-dom";
 const Body = () => {
+    const navigate = useNavigate();
+    const handleBtn = () => {
+        navigate("/upload")
+    }
     return (
         <>
             <div className="body-wrapper">
@@ -14,6 +19,9 @@ const Body = () => {
                     </div>
                     <div className="text">
                         Share your wedding memories effortlessly.Upload and view wedding photos from all guests in one place. Make every moment unforgettable.
+                    </div>
+                    <div className="capture-btn">
+                        <button onClick={handleBtn}>Give your memories</button>
                     </div>
                 </div>
             </div>
