@@ -1,0 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Jaro:opsz@6..72&display=swap');
+.header{
+    background-color: #7a3d3d;
+    color: white;
+    height: 7vh;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    font-size: 27px;
+    letter-spacing: 0.1rem;
+    font-family: "Jaro", serif;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+}
