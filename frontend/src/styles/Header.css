@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&display=swap');
 .header{
     background-color: #F7E7CE;
-    color: #654321;
+    color: #483118;
     height: 8vh;
     font-weight: bold;
     display: flex;
@@ -12,5 +12,13 @@
     font-size: 27px;
     letter-spacing: 0.1rem;
     font-family: "Cinzel", serif;
-    border-bottom: 2px #654321 solid;
+    border-bottom: 2px #483118 solid;
+    text-align: center;
+}
+
+
+@media (max-width: 320px) {
+    .header{
+        font-size: 22px;
+    }
 }
