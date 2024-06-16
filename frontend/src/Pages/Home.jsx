@@ -1,7 +1,7 @@
 import {useNavigate} from "react-router-dom";
 import React from "react";
 
-import WeddingImage from "../images/jay-shreya.jpg"
+import WeddingImage from "../groom-bride-images/jay-shreya.jpg"
 import "../styles/Home.css"
 function Home() {
     const navigate = useNavigate();
