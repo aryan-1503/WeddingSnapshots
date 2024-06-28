@@ -5,6 +5,7 @@ import Header from "./components/Header.jsx";
 import Home from "./Pages/Home.jsx"
 import Upload from "./Pages/Upload.jsx";
 import PageNotFound from "./Pages/PageNotFound.jsx";
+import Footer from "./components/Footer.jsx";
 
 function App() {
 
@@ -19,6 +20,7 @@ function App() {
                 <Route path="*" element={<PageNotFound />} />
             </Routes>
         </Router>
+        <Footer />
       </div>
       
     </>

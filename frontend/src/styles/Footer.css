@@ -1,0 +1,24 @@
+.footer-wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 5vh;
+    border-top: 2px solid #4b2d10;
+    background-color: #483118;
+}
+
+.footer-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #faddb3;
+    width: 100%;
+    font-weight: 500;
+    font-size: 1.1rem;
+    font-family: Dubai,serif;
+}
+
+.footer-container a{
+    padding-left: 0.4rem;
+    color: #F7E7CE;
+}
