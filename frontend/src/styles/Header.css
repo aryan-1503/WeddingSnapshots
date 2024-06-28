@@ -1,8 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Jaro:opsz@6..72&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&display=swap');
 .header{
-    background-color: #7a3d3d;
-    color: white;
-    height: 7vh;
+    background-color: #F7E7CE;
+    color: #483118;
+    height: 8vh;
     font-weight: bold;
     display: flex;
     justify-content: center;
@@ -10,6 +11,14 @@
     align-items: center;
     font-size: 27px;
     letter-spacing: 0.1rem;
-    font-family: "Jaro", serif;
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+    font-family: "Cinzel", serif;
+    border-bottom: 2px #483118 solid;
+    text-align: center;
+}
+
+
+@media (max-width: 320px) {
+    .header{
+        font-size: 22px;
+    }
 }
