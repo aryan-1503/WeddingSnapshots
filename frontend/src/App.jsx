@@ -6,21 +6,22 @@ import Home from "./Pages/Home.jsx"
 import Upload from "./Pages/Upload.jsx";
 import PageNotFound from "./Pages/PageNotFound.jsx";
 import Footer from "./components/Footer.jsx";
+import RootLayout from "./layouts/RootLayout.jsx";
 
 function App() {
 
   return (
     <>
-      <Header />
       <div className="pages">
         <Router>
             <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/upload" element={<Upload />} />
+                <Route element={<RootLayout />}>
+                    <Route path="/" element={<Home />} />
+                    <Route path="/upload" element={<Upload />} />
+                </Route>
                 <Route path="*" element={<PageNotFound />} />
             </Routes>
         </Router>
-        <Footer />
       </div>
       
     </>
