@@ -151,7 +151,7 @@ const Upload = () => {
                         </button>
                     </div>
                     <div className="preview">
-                        {showPreview && <ImagesPreview images={selectedFiles} setShowPreview={setShowPreview} />}
+                        {showPreview && <ImagesPreview images={selectedFiles} setImages={setSelectedFiles} setShowPreview={setShowPreview} />}
                     </div>
                     <div className="preview">
                         {showImages && <UploadedImages images={images} setShowImages={setShowImages} fetching={fetching}/>}

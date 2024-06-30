@@ -13,11 +13,12 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
+    gap: 3rem;
     border-bottom: 2px solid #483118;
     font-family: "Dancing Script", serif;
     font-optical-sizing: auto;
-    font-weight: 800;
-    font-size: 28px;
+    font-weight: 500;
+    font-size: 24px;
 
 }
 
@@ -69,4 +70,16 @@
     font-weight: 600;
     font-size: 25px;
     margin-top: 10rem;
+}
+
+.single-image button{
+    border: none;
+    background-color: #FFFFF0;
+    /*border-bottom: 1px solid #483118;*/
+    text-decoration: underline;
+    font-family: "Dubai",serif;
+    font-size: 14px;
+    margin-top: 0.5rem;
+    font-weight: 400;
+    padding: 0.1rem;
 }
