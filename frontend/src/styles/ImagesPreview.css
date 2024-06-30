@@ -1,0 +1,65 @@
+.preview-wrapper{
+    border-radius: 1rem;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;;
+}
+
+.preview-container{
+    background-color: #FFFFF0;
+    height: 80vh;
+    overflow: scroll;
+}
+
+.close{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-bottom: 2px solid #483118;
+    font-family: "Dancing Script", serif;
+    font-optical-sizing: auto;
+    font-weight: 800;
+    font-size: 28px;
+
+}
+
+.close button{
+    background-color: #FFFFF0;
+    padding: 0.7rem 0;
+    font-size: 20px;
+    margin-left: 2rem;
+}
+
+.images{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+
+}
+
+.single-image{
+    width: 95%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+
+}
+.single-image img{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    border-radius: 5px;
+    object-fit: cover;
+    margin-top: 1rem;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.single-image p{
+    margin-top: 0.3rem;
+    font-size: 22px;
+    font-family: "Dancing Script", cursive;
+    font-optical-sizing: auto;
+    font-weight: 700;
+}
