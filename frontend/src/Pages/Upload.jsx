@@ -21,6 +21,12 @@ const Upload = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         const formData = new FormData();
+        if(selectedFiles.length === 0) {
+            toast.error("Add some images!",{
+                position: "top-center",
+            })
+            return
+        }
         selectedFiles.forEach(file => {
             formData.append('images', file);
         });
