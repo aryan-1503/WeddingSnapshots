@@ -16,7 +16,6 @@ function App() {
                 <Route element={<RootLayout />}>
                     <Route path="/" element={<Home />} />
                     <Route path="/upload" element={<Upload />} />
-
                 </Route>
                 <Route path="*" element={<PageNotFound />} />
             </Routes>

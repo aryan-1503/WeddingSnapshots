@@ -1,6 +1,5 @@
 .upload-wrapper{
     background-color: #FFFFF0;
-
     height: 87vh;
 }
 .upload-container{
@@ -136,6 +135,7 @@ hr{
     display: flex;
     justify-content: flex-end;
     align-items: center;
+    margin-top: 0.3rem;
 }
 .get-all-btn button{
     color: #FFFFF0;
@@ -144,4 +144,5 @@ hr{
     border-radius: 50%;
     border: none;
     padding: 0.8rem 0.8rem 0.5rem 0.8rem;
+
 }
