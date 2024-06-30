@@ -1,7 +1,7 @@
 import { IoCloseOutline } from "react-icons/io5";
 import "../styles/ImagesPreview.css";
 
-const UploadedImages = ({ images, setShowImages }) => {
+const UploadedImages = ({ images, setShowImages ,fetching}) => {
     const handleClose = () => {
         setShowImages(false);
     }
@@ -14,7 +14,8 @@ const UploadedImages = ({ images, setShowImages }) => {
                     <button onClick={handleClose} style={{ border: "none" }}><IoCloseOutline /></button>
                 </div>
                 <div className="images">
-                    {images.map((image, index) => (
+                    {fetching && <div className="loading">Loading...</div>}
+                    {images && images.map((image, index) => (
                         <div className="single-image" key={index}>
                             <img src={image.img} alt={image.name} />
                         </div>

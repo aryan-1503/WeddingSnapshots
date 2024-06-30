@@ -12,7 +12,8 @@ const Upload = () => {
     const [showImages, setShowImages] = useState(false);
     const [selectedFiles, setSelectedFiles] = useState([]);
     const [images, setImages] = useState([]);
-
+    const [loading,setLoading] =useState(false)
+    const [fetching,setFetching] = useState(false)
     const handleFileChange = (event) => {
         setSelectedFiles([...event.target.files]);
     };
@@ -25,6 +26,7 @@ const Upload = () => {
         });
 
         try {
+            setLoading(true)
             const response = await fetch('https://weddingsnapshots.onrender.com/api/upload', {
                 method: 'POST',
                 body: formData,
@@ -43,17 +45,22 @@ const Upload = () => {
         } catch (error) {
             console.error('Error uploading images:', error);
             alert(error);
+        }finally {
+            setLoading(false)
         }
     };
 
     const handleGetAllImages = async (e) => {
         e.preventDefault();
         try {
+            setShowImages(true);
+            setFetching(true)
             const response = await fetch('https://weddingsnapshots.onrender.com/api/upload/images');
+
             if (response.ok) {
                 const data = await response.json();
                 setImages(data);
-                setShowImages(true);
+
             } else {
                 console.error('Error fetching images:', response.message);
                 alert(response.message);
@@ -61,6 +68,8 @@ const Upload = () => {
         } catch (error) {
             console.error('Error fetching images:', error);
             alert(error);
+        }finally {
+            setFetching(false)
         }
     };
 
@@ -117,7 +126,9 @@ const Upload = () => {
                             </div>
                             <div>Preview</div>
                         </button>
-                        <button type="submit" className="upload-btn">Upload Images</button>
+                        <button type="submit" className="upload-btn">
+                            {loading ? "Uploading..." : "Upload Images"}
+                        </button>
                     </form>
                     <div className="guidelines">
                         <div className="guideline-title">
@@ -137,7 +148,7 @@ const Upload = () => {
                         {showPreview && <ImagesPreview images={selectedFiles} setShowPreview={setShowPreview} />}
                     </div>
                     <div className="preview">
-                        {showImages && <UploadedImages images={images} setShowImages={setShowImages} />}
+                        {showImages && <UploadedImages images={images} setShowImages={setShowImages} fetching={fetching}/>}
                     </div>
                 </div>
             </div>

@@ -63,3 +63,10 @@
     font-optical-sizing: auto;
     font-weight: 700;
 }
+
+.loading{
+    font-family: "Dancing Script",serif;
+    font-weight: 600;
+    font-size: 25px;
+    margin-top: 10rem;
+}
