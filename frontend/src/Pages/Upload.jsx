@@ -25,7 +25,7 @@ const Upload = () => {
         });
 
         try {
-            const response = await fetch('http://localhost:9000/api/upload', {
+            const response = await fetch('https://weddingsnapshots.onrender.com/api/upload', {
                 method: 'POST',
                 body: formData,
             });
@@ -37,7 +37,7 @@ const Upload = () => {
                     position: "top-center"
                 });
             } else {
-                console.error('Error uploading images:', response.message);
+                console.error('Error uploading images:', response.data.message);
                 alert(response.message);
             }
         } catch (error) {
@@ -49,7 +49,7 @@ const Upload = () => {
     const handleGetAllImages = async (e) => {
         e.preventDefault();
         try {
-            const response = await fetch('http://localhost:9000/api/upload/images');
+            const response = await fetch('https://weddingsnapshots.onrender.com/api/upload/images');
             if (response.ok) {
                 const data = await response.json();
                 setImages(data);

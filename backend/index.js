@@ -8,7 +8,9 @@ console.log("Wedding Snapshots Backend started!");
 const app = express();
 connectToDB();
 
-app.use(cors());
+app.use(cors({
+    origin : ["https://weddingsnapshots.onrender.com","http://localhost:9000","http://localhost:8000"]
+}));
 app.use(express.json());
 
 // Routers Middleware Setup
