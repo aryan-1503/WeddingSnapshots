@@ -1,23 +1,22 @@
-import React from 'react';
 import { IoCloseOutline } from "react-icons/io5";
-import "../styles/ImagesPreview.css"
+import "../styles/ImagesPreview.css";
 
-const ImagesPreview = ({ images, setShowPreview }) => {
+const UploadedImages = ({ images, setShowImages }) => {
     const handleClose = () => {
-        setShowPreview(false);
+        setShowImages(false);
     }
 
     return (
         <div className="preview-wrapper">
             <div className="preview-container">
                 <div className="close">
-                    Preview
-                    <button onClick={handleClose} style={{border: "none"}}><IoCloseOutline /></button>
+                    Uploaded Images
+                    <button onClick={handleClose} style={{ border: "none" }}><IoCloseOutline /></button>
                 </div>
                 <div className="images">
                     {images.map((image, index) => (
                         <div className="single-image" key={index}>
-                            <img src={URL.createObjectURL(image)} alt={image.name} />
+                            <img src={image.img} alt={image.name} />
                         </div>
                     ))}
                 </div>
@@ -26,4 +25,4 @@ const ImagesPreview = ({ images, setShowPreview }) => {
     );
 };
 
-export default ImagesPreview;
+export default UploadedImages;

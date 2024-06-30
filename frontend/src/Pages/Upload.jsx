@@ -1,49 +1,76 @@
-import React, {useState} from 'react';
-import "../styles/Upload.css"
-import { MdOutlineCameraAlt,MdOutlineFileUpload } from "react-icons/md";
+import React, { useState } from 'react';
+import "../styles/Upload.css";
+import { MdOutlineCameraAlt, MdOutlineFileUpload } from "react-icons/md";
 import { IoImagesOutline } from "react-icons/io5";
 import ImagesPreview from "../components/ImagesPreview.jsx";
-import DemoImage from "../groom-bride-images/jay-shreya.jpg"
-const Upload = () => {
-    const [showPreview,setShowPreview] = useState(false);
-    const [images,setImages] = useState([
-        {
-            name: "aryan",
-            source: DemoImage
-        },
-        {
-            name: "aryan",
-            source: DemoImage
-        },
-        {
-            name: "aryan",
-            source: DemoImage
-        },
-        {
-            name: "aryan",
-            source: DemoImage
-        },
-        {
-            name: "aryan",
-            source: DemoImage
-        },
-        {
-            name: "aryan",
-            source: DemoImage
-        },
-    ]);
-    const handleSubmit = (e) => {
-        e.preventDefault()
-        console.log("clicked submit")
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import UploadedImages from "../components/UploadedImages.jsx";
 
-    }
+const Upload = () => {
+    const [showPreview, setShowPreview] = useState(false);
+    const [showImages, setShowImages] = useState(false);
+    const [selectedFiles, setSelectedFiles] = useState([]);
+    const [images, setImages] = useState([]);
+
+    const handleFileChange = (event) => {
+        setSelectedFiles([...event.target.files]);
+    };
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        const formData = new FormData();
+        selectedFiles.forEach(file => {
+            formData.append('images', file);
+        });
+
+        try {
+            const response = await fetch('http://localhost:9000/api/upload', {
+                method: 'POST',
+                body: formData,
+            });
+            if (response.ok) {
+                const data = await response.json();
+                console.log('Images uploaded successfully:', data);
+                setSelectedFiles([]);
+                toast.success("Image Uploaded!", {
+                    position: "top-center"
+                });
+            } else {
+                console.error('Error uploading images:', response.message);
+                alert(response.message);
+            }
+        } catch (error) {
+            console.error('Error uploading images:', error);
+            alert(error);
+        }
+    };
+
+    const handleGetAllImages = async (e) => {
+        e.preventDefault();
+        try {
+            const response = await fetch('http://localhost:9000/api/upload/images');
+            if (response.ok) {
+                const data = await response.json();
+                setImages(data);
+                setShowImages(true);
+            } else {
+                console.error('Error fetching images:', response.message);
+                alert(response.message);
+            }
+        } catch (error) {
+            console.error('Error fetching images:', error);
+            alert(error);
+        }
+    };
 
     const handleToggle = () => {
-        console.log("clicked")
-        setShowPreview(true)
-    }
+        setShowPreview(true);
+    };
+
     return (
         <div className="upload-wrapper">
+            <ToastContainer />
             <div className="upload-container">
                 <div className="upload-title">
                     Upload Images
@@ -53,10 +80,8 @@ const Upload = () => {
                     <form onSubmit={handleSubmit}>
                         <label htmlFor="capture-image" className="file-label">
                             <div className="take-a-photo">
-                                <div>
-                                    Take a Photo
-                                </div>
-                                <div style={{ fontSize:"22px"}}>
+                                <div>Take a Photo</div>
+                                <div style={{ fontSize: "22px" }}>
                                     <MdOutlineCameraAlt />
                                 </div>
                             </div>
@@ -65,30 +90,31 @@ const Upload = () => {
                                 capture
                                 id="capture-image"
                                 accept="image/*"
-                                style={{ display: "none"}}
+                                style={{ display: "none" }}
+                                multiple
+                                onChange={handleFileChange}
                             />
-                            <hr/>
+                            <hr />
                         </label>
                         <label htmlFor="upload-images" className="file-label">
                             <div className="take-a-photo">
-                                <div>
-                                    Choose from library
-                                </div>
-                                <div>
-                                    <MdOutlineFileUpload />
-                                </div>
+                                <div>Choose from library</div>
+                                <div><MdOutlineFileUpload /></div>
                             </div>
-
                             <input
                                 type="file"
                                 id="upload-images"
                                 accept="image/*"
-                                style={{ display: "none"}}
+                                style={{ display: "none" }}
+                                multiple
+                                onChange={handleFileChange}
                             />
-                            <hr/>
+                            <hr />
                         </label>
                         <button type="button" onClick={handleToggle} className="preview-btn">
-                            <div style={{paddingTop:"0.2rem",paddingLeft:"0.6rem",paddingRight:"0.4rem"}}><IoImagesOutline /></div>
+                            <div style={{ paddingTop: "0.2rem", paddingLeft: "0.6rem", paddingRight: "0.4rem" }}>
+                                <IoImagesOutline />
+                            </div>
                             <div>Preview</div>
                         </button>
                         <button type="submit" className="upload-btn">Upload Images</button>
@@ -99,14 +125,19 @@ const Upload = () => {
                             <hr />
                         </div>
                         <div className="guideline">
-                            Photos should be high resolution, upload family photos in landscape orientation, and other photos in portrait orientation ,should be well-lit. Avoid taking photos of people eating or looking at their phones.
+                            Photos should be high resolution, upload family photos in landscape orientation, and other photos in portrait orientation, should be well-lit. Avoid taking photos of people eating or looking at their phones.
                         </div>
                     </div>
-
+                    <div className="get-all-btn">
+                        <button onClick={handleGetAllImages}>
+                            <IoImagesOutline/>
+                        </button>
+                    </div>
                     <div className="preview">
-                        {showPreview &&
-                            <ImagesPreview images={images} setShowPreview={setShowPreview} />
-                        }
+                        {showPreview && <ImagesPreview images={selectedFiles} setShowPreview={setShowPreview} />}
+                    </div>
+                    <div className="preview">
+                        {showImages && <UploadedImages images={images} setShowImages={setShowImages} />}
                     </div>
                 </div>
             </div>
