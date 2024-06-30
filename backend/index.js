@@ -9,7 +9,12 @@ const app = express();
 connectToDB();
 
 app.use(cors({
-    origin : ["https://weddingsnapshots.onrender.com","http://localhost:9000","http://localhost:8000"]
+    origin: [
+        'https://weddingsnapshots.onrender.com',
+        'http://localhost:9000',
+        'http://localhost:8000',
+        'https://wedding-snapshots.vercel.app' //
+    ]
 }));
 app.use(express.json());
 
