@@ -118,6 +118,7 @@ input[type="text"]:focus{
     font-family: "Cinzel", serif;
     font-weight: 500;
     font-size: 14px;
+    margin-left: 1rem;
 }
 
 hr{
@@ -136,6 +137,7 @@ hr{
     justify-content: flex-end;
     align-items: center;
     margin-top: 0.3rem;
+    margin-bottom: 1rem;
 }
 .get-all-btn button{
     color: #FFFFF0;
@@ -144,5 +146,12 @@ hr{
     border-radius: 50%;
     border: none;
     padding: 0.8rem 0.8rem 0.5rem 0.8rem;
+
+}
+
+@media (max-width: 480px) {
+    .upload-wrapper{
+        height: auto;
+    }
 
 }

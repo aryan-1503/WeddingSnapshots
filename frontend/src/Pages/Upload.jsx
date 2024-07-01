@@ -114,7 +114,7 @@ const Upload = () => {
                         <label htmlFor="upload-images" className="file-label">
                             <div className="take-a-photo">
                                 <div>Choose from library</div>
-                                <div><MdOutlineFileUpload /></div>
+                                <div style={{fontSize:"22px",marginTop:"0.1rem"}}><MdOutlineFileUpload /></div>
                             </div>
                             <input
                                 type="file"
@@ -138,12 +138,16 @@ const Upload = () => {
                     </form>
                     <div className="guidelines">
                         <div className="guideline-title">
-                            Photo Guidelines
+                            Steps to Upload Images :
                             <hr />
                         </div>
-                        <div className="guideline">
-                            Photos should be high resolution, upload family photos in landscape orientation, and other photos in portrait orientation, should be well-lit. Avoid taking photos of people eating or looking at their phones.
-                        </div>
+                        <ul className="guideline">
+                            <li>Click <span style={{fontWeight: "bold"}}>'TAKE A PHOTO'</span> or <span style={{fontWeight: "bold"}}>'CHOOSE FROM LIBRARY'</span> to select images for upload.</li>
+                            <li>Click <span style={{fontWeight: "bold"}}>'PREVIEW'</span> to view your selected images. You can remove any images if needed.</li>
+                            <li>Click <span style={{fontWeight: "bold"}}>'UPLOAD IMAGES'</span> to share your moments.</li>
+                            <li>See all uploaded images by clicking the button in the lower right corner.</li>
+
+                        </ul>
                     </div>
                     <div className="get-all-btn">
                         <button onClick={handleGetAllImages}>

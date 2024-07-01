@@ -9,7 +9,7 @@ const UploadedImages = ({ images, setShowImages ,fetching}) => {
     return (
         <div className="preview-wrapper">
             <div className="preview-container">
-                <div className="close">
+                <div className="close" style={{gap:0}}>
                     Uploaded Images
                     <button onClick={handleClose} style={{ border: "none" }}><IoCloseOutline /></button>
                 </div>

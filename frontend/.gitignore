@@ -24,3 +24,5 @@ dist-ssr
 *.sw?
 
 ../backend/.env
+
+src/groom-bride-images
