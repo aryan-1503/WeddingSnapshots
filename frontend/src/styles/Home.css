@@ -29,6 +29,7 @@
 .welcome{
     color: #483118;
     text-align: center;
+    width: 95%;
     margin-top: 1rem;
     font-size: 32px;
     font-family: "Dancing Script", cursive;

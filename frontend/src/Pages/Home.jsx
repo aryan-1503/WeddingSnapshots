@@ -8,11 +8,26 @@ function Home() {
     const handleBtn = () => {
         navigate("/upload")
     }
+
+    let welcomeText = "Welcome";
+    const currentDate = new Date();
+    const todaysDate = currentDate.toLocaleDateString();
+    console.log(typeof todaysDate)
+    if (todaysDate === "07/07/2024")
+    {
+        welcomeText = "Welcome to the ceremony";
+    }
+    else if (todaysDate === "01/24/2025"){
+        welcomeText = "Welcome to the Wedding"
+    }
+
+
+
     return (
         <>
             <div className="body-wrapper">
                 <div className="body-content">
-                <div className="welcome">Welcome to the wedding</div>
+                <div className="welcome">{welcomeText}</div>
                 <div className="photo">
                     <img src={WeddingImage} alt="" width="250px" />
                 </div>
